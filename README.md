@@ -75,3 +75,7 @@ The browser test page deliberately mocks downloads and accepts its own replaceme
 ## License and inspiration
 
 MIT. All code, rig geometry, artwork, and interface assets are original. Inspired by [Autodesk Maya](https://www.autodesk.com/products/maya/overview), without affiliation or endorsement. No proprietary code, models, logos, or file formats are included. The combined `.gitignore` covers Windows, macOS, Linux/Unix, editors, build outputs, dependency folders, local secrets, and test artifacts.
+
+## Publishing
+
+The GitHub Pages workflow checks and builds the app on pushes to `main` or manual dispatch, then deploys `dist/`. In repository Settings → Pages, choose **GitHub Actions** as the source. Deployment is separate from the local QA recorded above.
