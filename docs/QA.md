@@ -23,3 +23,8 @@ Visit the main app and `http://127.0.0.1:4313/tests/responsive.html` for desktop
 ## Boundaries
 
 No Safari, Firefox, physical touch device, assistive-technology audit, or long-duration performance claim. Autosave depends on browser storage; downloaded project files remain the durable backup.
+
+
+## Publication
+
+The tested runtime commit `489adff8319c13bde5612bd6ca4d7a466958e692` was pushed to [the public repository](https://github.com/intrepion/kata-app-inspired-by-maya-codex-dot). Its checks, build, and GitHub Pages deployment succeeded in [run 42748749104](https://github.com/intrepion/kata-app-inspired-by-maya-codex-dot/actions/runs/42748749104) on 2026-11-10. The app is available at [Kata Kinframe](https://intrepion.github.io/kata-app-inspired-by-maya-codex-dot/). This publication record does not expand the local device, accessibility or file-dialog verification described above.

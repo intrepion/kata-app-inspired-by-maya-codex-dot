@@ -79,3 +79,8 @@ MIT. All code, rig geometry, artwork, and interface assets are original. Inspire
 ## Publishing
 
 The GitHub Pages workflow checks and builds the app on pushes to `main` or manual dispatch, then deploys `dist/`. In repository Settings → Pages, choose **GitHub Actions** as the source. Deployment is separate from the local QA recorded above.
+
+
+## Published app
+
+Open [Kata Kinframe](https://intrepion.github.io/kata-app-inspired-by-maya-codex-dot/). The public repository uses GitHub Actions to verify and deploy `dist/` from `main`. See [QA notes](docs/QA.md) for local verification and known limits.

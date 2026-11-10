@@ -8,7 +8,7 @@
   "tagline": "Small moves. Big character.",
   "description": "An original local-first character-animation workshop with posing, full-pose keys, interpolation, and a friendly vector puppet.",
   "entryPoint": "index.html",
-  "status": "local-prototype",
+  "status": "live",
   "toolShedUrl": "https://intrepion.github.io/tools/",
   "features": [
     "12-channel 2D FK puppet",
@@ -28,5 +28,6 @@
     "name": "Autodesk Maya",
     "url": "https://www.autodesk.com/products/maya/overview"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "launchUrl": "https://intrepion.github.io/kata-app-inspired-by-maya-codex-dot/"
 }
