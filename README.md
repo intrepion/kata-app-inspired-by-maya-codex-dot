@@ -19,7 +19,7 @@ npm run dev
 Open `http://127.0.0.1:4313` in a browser. Do not open `index.html` directly or use `file://`. Choose another port with `PORT=4300 npm run dev` (PowerShell: `$env:PORT=4300; npm run dev`). The server also accepts `--host` and `--port` arguments.
 
 ```sh
-npm run check   # Syntax checks and 10 model tests
+npm run check   # Syntax checks and 16 model tests
 npm run build   # Produces self-contained static dist/
 ```
 
@@ -36,6 +36,12 @@ Serve `dist/` through an HTTP static server. No external assets, accounts, or ne
 7. **Export frame** downloads a clean SVG vector frame at 1800 × 1060, without rig controls or ghosts.
 
 A preview pose is not a timeline key until you key it. Scrubbing samples the keyed timeline. Undo/redo retains up to 50 in-memory changes, including pose edits, keys, imports, and preset switches.
+
+## Revised motion presets
+
+**Little steps** uses a 24-frame profile walk with planted stance feet, swing clearance, weight transfer, and opposing arm swing. Its 97 ordinary FK keys remain editable. **Hello, world** anticipates, raises an arm, waves with a bent elbow, then settles. Existing autosaves are preserved; choose a preset to load the revised motion.
+
+View the [motion review screenshot](docs/screenshots/motion-review.jpg), or serve `tests/motion.html` through localhost for eight app-rendered key poses. The rig is still a stylized 2D puppet without ankle, wrist, or finger channels.
 
 ## Controls and accessibility
 

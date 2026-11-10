@@ -9,3 +9,10 @@ Research checked November 10, 2026. Primary sources informed workflow concepts, 
 ## Scope decision
 
 A full Maya-like 3D suite would be unrealistic for a small browser kata. The functional vertical slice is character posing, full-pose key creation, interpolation, playback, and editable save files. The visible character uses original vector geometry and a deliberately friendly wooden-traveler identity. It is a 2D rigging/animation study, not native Maya support or feature parity.
+
+## Walk and wave revision · November 10, 2026
+
+- [Animation Mentor: Animating a Basic Human Walk Cycle](https://www.animationmentor.com/blog/tutorial-animating-human-walk-cycle/) informed contact/down/passing/up structure, a 24-frame cycle, support-foot travel, and opposing arm swing. The walk is now drawn in profile so forward motion is legible in the 2D rig. Original foot paths are solved when generating the preset and baked to ordinary FK keys; playback does not secretly override edited poses.
+- [Animation Mentor: Overlap and Follow-Through](https://www.animationmentor.com/blog/tutorial-animate-overlap-and-follow-through/) informed a greeting with anticipation, arm raise, a relatively quiet shoulder during the wave, and a return/settle. The raised elbow no longer changes its bend direction. All geometry and key values remain original.
+
+These references guide stylized animation, not a motion-capture or anatomical simulation claim. This rig has no ankle, wrist, finger, or 3D depth channels.
