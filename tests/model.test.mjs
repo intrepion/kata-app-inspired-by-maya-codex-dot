@@ -1,0 +1,11 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {CHANNELS,NEUTRAL,sample,setKey,mirror,preset,validate,rig} from '../src/model.js';
+test('all presets validate and loop',()=>{for(const name of ['wave','walk','bounce']){const p=preset(name);assert.deepEqual(validate(p),p);assert.deepEqual(sample(p.keys,0),sample(p.keys,96));}});
+test('linear interpolation midpoint',()=>{const p=preset();p.keys=[{frame:0,pose:{...NEUTRAL,rootX:0},easing:'linear'},{frame:24,pose:{...NEUTRAL,rootX:100},easing:'linear'}];assert.equal(sample(p.keys,12).rootX,50);assert.equal(sample(p.keys,-10).rootX,0);assert.equal(sample(p.keys,100).rootX,100);});
+test('hold easing retains source pose',()=>{const p=preset();p.keys[0].easing='hold';assert.deepEqual(sample(p.keys,8),p.keys[0].pose);});
+test('smooth interpolation differs from linear away from center',()=>{const p=preset();p.keys=[{frame:0,pose:{...NEUTRAL,rootX:0},easing:'smooth'},{frame:24,pose:{...NEUTRAL,rootX:100},easing:'smooth'}];assert.equal(sample(p.keys,6).rootX,15.625);});
+test('setKey replaces a frame without duplication, sorts, and clones',()=>{const p=preset(),pose={...NEUTRAL};const a=setKey(p,8,pose);pose.body=30;assert.equal(a.keys.find(k=>k.frame===8).pose.body,0);assert.equal(setKey(a,8,NEUTRAL).keys.length,a.keys.length);assert.ok(a.keys.every((k,i)=>!i||k.frame>a.keys[i-1].frame));});
+test('mirror is an involution',()=>{assert.deepEqual(mirror(mirror(preset().keys[0].pose)),preset().keys[0].pose);});
+test('forward kinematics preserves bone lengths',()=>{for(const k of preset('bounce').keys){const r=rig(k.pose);assert.ok(Math.abs(Math.hypot(r.handR.x-r.elbowR.x,r.handR.y-r.elbowR.y)-57)<1e-8);}});
+test('rejects bad format, unordered frames and non-finite values',()=>{assert.throws(()=>validate({}));const p=preset();p.keys[1].frame=0;assert.throws(()=>validate(p));const q=preset();q.keys[0].pose.armR=NaN;assert.throws(()=>validate(q));});
+test('validation bounds all channels',()=>{for(const c of CHANNELS){const p=preset();p.keys[0].pose[c.id]=c.max+1;assert.throws(()=>validate(p));}});
+test('validation drops unknown fields and forbids empty keys',()=>{const p=preset();p.bad='x';assert.equal(validate(p).bad,undefined);p.keys=[];assert.throws(()=>validate(p));});

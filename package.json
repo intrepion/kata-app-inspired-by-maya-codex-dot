@@ -1,0 +1,18 @@
+{
+  "name": "kata-app-inspired-by-maya-codex-dot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kata Kinframe: an original local-first creative studio.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check src/app.js && node --check src/model.js && npm test",
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}
